@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project leivonta">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="C:/MyTemp/jeadjuka/ohj2/ws"/>
+    <property name="dir.jarfile" value="${dir.buildfile}"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/leivonta.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="fxLeivonta.LeivontaMain"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="${dir.jarfile}/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/jar/Ali.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/jar/fxgui.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/jar/Graphics.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="C:/devel/jar/Music.jar"/>
+        </jar>
+    </target>
+</project>

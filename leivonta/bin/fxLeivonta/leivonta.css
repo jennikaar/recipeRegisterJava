@@ -1,0 +1,14 @@
+.virhe {
+   /* @SuppressWarning */
+   -fx-background-color: red;
+ }
+ 
+ .normaali {
+   /* @SuppressWarning */
+   -fx-background-color: white;
+ }
+ 
+ .button{
+ 	/* @SuppressWarning */
+   -fx-background-color: lightpink;
+ }

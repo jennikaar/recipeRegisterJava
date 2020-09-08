@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="344.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxLeivonta.TulostusController">
+   <children>
+      <TextArea fx:id="tulostusAlue" layoutX="1.0" prefHeight="365.0" prefWidth="344.0" text="----------------------------------------------&#10;reseptin nimi  : Korvapuustit&#10;ohjetyyppi      : Perinteinen&#10;ohje                : 1. Sulata voi ja murskaa keksit.&#10;                         2. Sekoita keksit ja voi keskenään.&#10;                         3. Laita leivinpaperia irtopohjavuokaan&#10;                             ja levitä keksi-voi-seos pohjalle. &#10;                             Siirrä hetkeksi jääkaappiin.&#10;                         4. Laita liivatelehdet kylmään veteen &#10;                             likoamaan&#10;                         5.  Vaahdota kuohukerma.&#10;                         6. Sekoita sekaan tuorejuusto, rahka ja&#10;                             sokerit&#10;                         7.  Kuumenna mehu/vesi kiehuvaksi ja &#10;                              sekoita tarkasti liivatelehdet joukkoon.&#10;                         8. Sekoita liivate täytteen joukkoon ohuena &#10;                             nauhana, koko ajan sekoittaen.&#10;                         9. Kaada täyte vuokaan. Anna hyytyä &#10;                             ainakin 2h, mielellään enemmän.&#10;aineosat          : 125g  keksejä  &#10;                          3kpl  liivatelehti &#10;                          2 dl   kuohukerma &#10;                          200g tuorejuusto&#10;Kategoria       : Juustokakut&#10;Valmistusaika : Yli 2h&#10;Teema            : &#10;Allergiat         : Pähkinätön &#10;----------------------------------------------" />
+      <Button layoutX="65.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleTulosta" text="Tulosta" />
+      <Button defaultButton="true" layoutX="218.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleOK" text="OK" />
+   </children>
+</Pane>

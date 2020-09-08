@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ComboBoxChooser?>
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import fi.jyu.mit.fxgui.StringGrid?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="333.0" prefWidth="584.0" stylesheets="@leivonta.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxLeivonta.LeivontaGUIController">
+   <left>
+      <VBox prefHeight="274.0" prefWidth="130.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="156.0" prefWidth="130.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="147.0" text="Haku" />
+				  <TextField fx:id="hakuehto" onKeyReleased="#handleHakuEhto" />
+                  <ComboBoxChooser fx:id="cbKentat" maxWidth="200.0" onAction="#handleHakuEhto" rivit="Reseptinimi &#10;Kategoria &#10;Teema &#10;Valmistusaika &#10;Allergiat " />
+               </children></VBox>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <Label text="Reseptit" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <ListChooser fx:id="chooserReseptit" rivit="Juustokakku&#10;Korvapuustit&#10;Prinsessakakku&#10;" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <right>
+      <VBox prefHeight="300.0" prefWidth="195.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane prefHeight="137.0" prefWidth="196.0">
+               <top>
+                  <Label text="Ainesosat" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <StringGrid fx:id="tableAinesosat" editable="false" emptyStyleClass="" prefHeight="100.0" prefWidth="105.0" rivit="määrä | ainesosat&#10;125 g | keksejä&#10;3 kpl | liivatelehti&#10;2 dl | kuohukerma&#10;200 g | tuorejuustoa &#10;" />
+               </center>
+            </BorderPane>
+            <SplitPane prefHeight="160.0" prefWidth="200.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="25.0" prefHeight="17.0" prefWidth="61.0" text="Kategoria" />
+                        <Label layoutX="14.0" layoutY="55.0" text="Valmistusaika" />
+                        <TextField fx:id="editKategoria" editable="false" layoutX="85.0" layoutY="21.0" prefHeight="25.0" prefWidth="95.0" text="Juustokakut" />
+                        <TextField fx:id="editValmistusaika" editable="false" layoutX="86.0" layoutY="51.0" prefHeight="25.0" prefWidth="48.0" text="120" />
+                        <Label layoutX="14.0" layoutY="88.0" text="Teema" />
+                        <Label layoutX="14.0" layoutY="117.0" text="Allergiat " />
+                        <TextField fx:id="editTeema" editable="false" layoutX="86.0" layoutY="84.0" prefHeight="25.0" prefWidth="95.0" />
+                        <TextField fx:id="editAllergia" editable="true" layoutX="87.0" layoutY="113.0" onAction="#handleUusiAllergia" prefHeight="25.0" prefWidth="95.0" text="Pähkinätön" />
+                        <Label layoutX="144.0" layoutY="55.0" text="min" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <top>
+      <MenuBar prefHeight="25.0" prefWidth="597.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="true" text="_Tiedosto">
+            <items>
+              <MenuItem onAction="#handleTallenna" text="_Tallenna" />
+                  <MenuItem onAction="#handleAvaa" text="Avaa" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTulosta" text="Tulosta" />
+                  <MenuItem mnemonicParsing="true" onAction="#handleLopeta" text="_Sulje" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="true" text="_Muokkaa">
+            <items>
+              <MenuItem mnemonicParsing="true" onAction="#handleUusiResepti" text="Lisää uusi resepti" />
+                  <MenuItem mnemonicParsing="true" onAction="#handlePoistaResepti" text="Poista resepti" />
+                  <MenuItem mnemonicParsing="true" onAction="#handleMuokkaaResepti" text="Muokkaa reseptiä" />
+                  <MenuItem mnemonicParsing="true" onAction="#handleUusiOhje" text="Lisää uusi ohje reseptille" />
+                  <MenuItem mnemonicParsing="true" onAction="#handlePoistaOhje" text="Poista valittu ohje reseptistä" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="true" text="_Apua">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleApua" text="Apua" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTietoja" text="Tietoa" />
+            </items>
+          </Menu>
+        </menus>
+         <BorderPane.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" />
+         </BorderPane.margin>
+      </MenuBar>
+   </top>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <TextArea fx:id="areaResepti" editable="false" prefHeight="271.0" prefWidth="233.0" text="1. Sulata voi ja murskaa keksit.&#10;2. Sekoita keksit ja voi keskenään.&#10;3. Laita leivinpaperia irtopohjavuokaan&#10; ja levitä keksi-voi-seos pohjalle. Siirrä &#10;hetkeksi jääkaappiin. &#10;4. Laita liivatelehdet kylmään veteen &#10;likoamaan.&#10;5.  Vaahdota kuohukerma.&#10;6. Sekoita sekaan tuorejuusto, rahka ja &#10;sokerit. &#10;7.  Kuumenna mehu/vesi kiehuvaksi ja &#10;sekoita tarkasti liivatelehdet joukkoon.&#10;8. Sekoita liivate täytteen joukkoon &#10;ohuena nauhana, koko ajan sekoittaen.&#10;9. Kaada täyte vuokaan. Anna hyytyä &#10;ainakin 2h, mielellään enemmän. &#10;" BorderPane.alignment="CENTER" />
+         </center>
+         <BorderPane.margin>
+            <Insets bottom="4.0" left="2.0" right="2.0" />
+         </BorderPane.margin>
+         <top>
+            <HBox prefHeight="25.0" prefWidth="193.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="71.0" text="Ohje">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBoxChooser fx:id="comboOhjeTyyppi" prefHeight="25.0" prefWidth="118.0" onAction="#handleOhjeValinta" rivit="Kaikki &#10;Perinteinen &#10;Gluteeniton &#10;Munaton &#10;Pähkinätön &#10;Vegaani" />
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </center>
+   <bottom>
+      <Label fx:id="labelVirhe" alignment="CENTER" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

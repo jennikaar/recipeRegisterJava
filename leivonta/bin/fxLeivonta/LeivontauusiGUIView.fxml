@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ComboBoxChooser?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="333.0" prefWidth="584.0" stylesheets="@leivonta.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxLeivonta.OhjeDialogController">
+   <right>
+      <VBox prefHeight="300.0" prefWidth="195.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane prefHeight="137.0" prefWidth="196.0">
+               <top>
+                  <Label text="Ainesosat" BorderPane.alignment="CENTER" />
+               </top>
+               <center>
+                  <TextArea fx:id="editAinesosat" prefHeight="271.0" prefWidth="233.0" text="Kirjoita ainesosat tähän (erota määrät ja aineet välilyönnillä ja ainesosat pilkulla)" />
+               </center>
+            </BorderPane>
+            <SplitPane prefHeight="160.0" prefWidth="200.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="46.0" text="Valmistusaika" />
+                        <TextField fx:id="editValmistusaika" layoutX="97.0" layoutY="42.0" prefHeight="25.0" prefWidth="53.0" />
+                        <Label layoutX="14.0" layoutY="95.0" text="Allergiat " />
+                        <TextField fx:id="editAllergia" layoutX="97.0" layoutY="91.0" prefHeight="25.0" prefWidth="89.0" />
+                        <Label layoutX="160.0" layoutY="46.0" text="min" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <HBox prefHeight="39.0" prefWidth="195.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleOK" text="OK">
+                     <HBox.margin>
+                        <Insets bottom="3.0" left="4.0" right="4.0" top="2.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#handleCancel" text="Peruuta">
+                     <HBox.margin>
+                        <Insets left="4.0" top="2.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <TextArea fx:id="editOhje" prefHeight="271.0" prefWidth="233.0" text="Kirjoita ohje tähän..." BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin></TextArea>
+         </center>
+         <BorderPane.margin>
+            <Insets bottom="4.0" left="2.0" right="2.0" />
+         </BorderPane.margin>
+         <top>
+            <HBox prefHeight="25.0" prefWidth="193.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="71.0" text="Ohjetyyppi">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBoxChooser fx:id="comboOhjeTyyppi" prefHeight="25.0" prefWidth="118.0" onAction="#handleOhjeValinta" rivit="Valitse... &#10;Perinteinen &#10;Gluteeniton &#10;Munaton &#10;Pähkinätön &#10;Vegaani"></ComboBoxChooser> 
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </center>
+   <top>
+      <Label fx:id="labelVirhe" text="Resepti" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>
